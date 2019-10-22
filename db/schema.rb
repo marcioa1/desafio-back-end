@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_143428) do
+ActiveRecord::Schema.define(version: 2019_10_21_205415) do
 
   create_table "transaction_types", force: :cascade do |t|
     t.integer "code"
     t.string "description"
     t.string "in_out"
     t.string "signal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "transaction_id"
+    t.date "date"
+    t.decimal "value"
+    t.string "cpf"
+    t.string "card"
+    t.string "store_owner"
+    t.string "store_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

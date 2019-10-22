@@ -5,7 +5,7 @@ class UploadsController < ApplicationController
   def parse
     uploaded_file = params[:file]
     if uploaded_file.present? && uploaded_file.original_filename == 'CNAB.txt'
-      
+      Transaction.parse uploaded_file
     else
       flash[:error] = "Escolha o arquivo com nome CNAB.txt"
       render 'new'
