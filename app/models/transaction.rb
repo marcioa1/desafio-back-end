@@ -20,7 +20,7 @@ class Transaction < ApplicationRecord
     transaction.card             = line[30,12]
     transaction.store_owner      = line[48,14].strip
     transaction.store_name       = line[62,18].strip
-    transaction.save
+    transaction.save!
   end
 
   def self.get_date line
@@ -38,7 +38,6 @@ class Transaction < ApplicationRecord
   def formatted_cpf
     return self.cpf if self.cpf.size != 11
     self.cpf[0,3]+"."+self.cpf[3,3]+"."+self.cpf[6,3]+"-"+self.cpf[-2, 2]
-
   end
 
 end
