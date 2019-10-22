@@ -2,7 +2,7 @@ class CreateTransactions < ActiveRecord::Migration[5.2]
   def change
     create_table :transactions do |t|
       t.references :transaction_type
-      t.date :date
+      t.datetime :date
       t.decimal :value
       t.string :cpf
       t.string :card

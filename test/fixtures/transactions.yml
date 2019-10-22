@@ -4,7 +4,7 @@ one:
   transaction_type: debit
   date: 2019-10-21
   value: 9.99
-  cpf: MyString
+  cpf: 11122233345
   card: MyString
   store_owner: MyString
   store_name: MyString

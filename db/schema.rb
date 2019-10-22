@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_205415) do
 
   create_table "transactions", force: :cascade do |t|
     t.integer "transaction_type_id"
-    t.date "date"
+    t.datetime "date"
     t.decimal "value"
     t.string "cpf"
     t.string "card"

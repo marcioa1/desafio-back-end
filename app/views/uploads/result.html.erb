@@ -11,14 +11,14 @@
     <% end %>
     <% store_name = transaction.store_name %>
     <% total_store = 0 %>
-    <table border=1 width=900px>
+    <table >
       <tr><th colspan=7><%= store_name %></th></tr>
       <tr><th>Data</th><th>Transação</th><th>CPF</th><th>Cartão</th><th>Crédito</th><th>Débito</th><th>Saldo</th></tr>
   <% end %>
   <tr>
-    <td><%= transaction.date.strftime("%d/%m/%y %H:%M") %></td>
+    <td><%= transaction.date.strftime("%d/%m/%y %H:%M:%S") %></td>
     <td><%= transaction.transaction_type.description %></td>
-    <td><%= transaction.cpf %></td>
+    <td><%= transaction.formatted_cpf %></td>
     <td><%= transaction.card %></td>
 
     <% if transaction.is_credit? %>

@@ -31,4 +31,8 @@ class TransactionTest < ActiveSupport::TestCase
     assert_not transaction.is_credit?
   end
 
+  test "must format the CPF accondingly" do
+    transaction = transactions(:one)
+    assert_equal "111.222.333-45", transaction.formatted_cpf 
+  end
 end

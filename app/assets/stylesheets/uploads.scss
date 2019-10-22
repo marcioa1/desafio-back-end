@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+table {
+  width: 80%;
+}
 table, th, td {
   border: 1px solid gray;
    border-collapse: collapse;
+
 }
