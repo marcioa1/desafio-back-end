@@ -1,8 +1,10 @@
-#Configuração do ambiente
+# Configuração do ambiente
 
 
   Versão do Ruby  : 2.4.0
+
   Versão do Rails : 5.2.3
+
   Banco de Dados  : SQlite3
 
 # Desafio programação - para vaga Back-end
