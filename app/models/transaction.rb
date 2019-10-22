@@ -4,6 +4,8 @@ class Transaction < ApplicationRecord
 
   validates :store_name, :store_owner, :cpf, presence: true
 
+  LINE_SIZE = 81
+
   def self.parse import_file
     Transaction.delete_all
     File.foreach( import_file.path ) do |line|
@@ -12,6 +14,7 @@ class Transaction < ApplicationRecord
   end
 
   def self.init line
+    raise LineSizeError if line.size > LINE_SIZE
     transaction                  = Transaction.new
     transaction.transaction_type_id = line[0,1].to_i
     transaction.date             = Transaction.get_date line
@@ -41,3 +44,9 @@ class Transaction < ApplicationRecord
   end
 
 end
+
+class LineSizeError < StandardError
+    def message
+      "Esta linha está com tamanho errado."
+    end
+  end
