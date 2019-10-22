@@ -2,6 +2,8 @@ class Transaction < ApplicationRecord
 
   belongs_to :transaction_type
 
+  validates :store_name, :store_owner, :cpf, presence: true
+
   def self.parse import_file
     Transaction.delete_all
     File.foreach( import_file.path ) do |line|
@@ -28,4 +30,10 @@ class Transaction < ApplicationRecord
     hour = hour_str[0,2] + ":" + hour_str[2,2] + ":" + hour_str[4,2]
     Time.zone.parse(date + ' ' + hour)
   end
+
+  def is_credit?
+    self.transaction_type.signal == "+"
+  end
+
+  
 end

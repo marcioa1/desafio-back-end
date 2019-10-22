@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  type: 1
-  description: MyString
-  in_out: MyString
-  signal: 
+debit:
+  code: 1
+  description: Compra
+  in_out: Débito
+  signal: '-'
 
-two:
-  type: 1
-  description: MyString
-  in_out: MyString
-  signal: 
+credit:
+  code: 2
+  description: Venda
+  in_out: Crédito
+  signal: '+'

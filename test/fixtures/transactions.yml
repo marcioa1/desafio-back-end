@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  transaction_id: 
+  transaction_type: debit
   date: 2019-10-21
   value: 9.99
   cpf: MyString
@@ -10,7 +10,7 @@ one:
   store_name: MyString
 
 two:
-  transaction_id: 
+  transaction_type: credit
   date: 2019-10-21
   value: 9.99
   cpf: MyString

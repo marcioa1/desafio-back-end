@@ -11,15 +11,21 @@
     <% end %>
     <% store_name = transaction.store_name %>
     <% total_store = 0 %>
-    <table border=1 width=600px>
-      <tr><th colspan=4><%= store_name %></th></tr>
+    <table border=1 width=900px>
+      <tr><th colspan=7><%= store_name %></th></tr>
+      <tr><th>Data</th><th>Transação</th><th>CPF</th><th>Cartão</th><th>Crédito</th><th>Débito</th><th>Saldo</th></tr>
   <% end %>
   <tr>
     <td><%= transaction.date.strftime("%d/%m/%y %H:%M") %></td>
+    <td><%= transaction.transaction_type.description %></td>
     <td><%= transaction.cpf %></td>
     <td><%= transaction.card %></td>
     <% total_store += transaction.value %>
-    <td align='right'><%= number_to_currency(transaction.value, unit: "") %></td>
+    <% if transaction.is_credit? %>
+      <td align='right'><%= number_to_currency(transaction.value, unit: "") %></td><td></td>
+    <% else %>
+      <td></td><td align='right'><%= number_to_currency(transaction.value, unit: "") %></td>
+    <% end %>
   </tr>
 <% end %>
 <tr>
