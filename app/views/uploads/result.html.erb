@@ -4,7 +4,7 @@
   <% if store_name != transaction.store_name %>
     <% if store_name != "" %>
       <tr>
-        <td colspan=3 align='center'>Total</td>
+        <td colspan=6 align='center'>Total</td>
         <td align='right'><%= number_to_currency(total_store, unit: '') %> </td>
       </table>
       <p/>
@@ -20,15 +20,18 @@
     <td><%= transaction.transaction_type.description %></td>
     <td><%= transaction.cpf %></td>
     <td><%= transaction.card %></td>
-    <% total_store += transaction.value %>
+
     <% if transaction.is_credit? %>
       <td align='right'><%= number_to_currency(transaction.value, unit: "") %></td><td></td>
+      <% total_store += transaction.value %>
     <% else %>
       <td></td><td align='right'><%= number_to_currency(transaction.value, unit: "") %></td>
+      <% total_store -= transaction.value %>
     <% end %>
+    <td align='right'><%= number_to_currency(total_store, unit: '') %></td>
   </tr>
 <% end %>
 <tr>
-  <td colspan=3 align='center'>Total</td>
+  <td colspan=6 align='center'>Total</td>
   <td align='right'><%= number_to_currency(total_store, unit: '') %> </td>
 </table>
