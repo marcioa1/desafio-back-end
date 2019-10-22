@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_205415) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "transaction_id"
+    t.integer "transaction_type_id"
     t.date "date"
     t.decimal "value"
     t.string "cpf"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_205415) do
     t.string "store_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["transaction_type_id"], name: "index_transactions_on_transaction_type_id"
   end
 
 end

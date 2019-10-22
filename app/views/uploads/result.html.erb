@@ -1,0 +1,28 @@
+<% store_name = "" %>
+<% total_store = 0 %>
+<% @transactions.each do |transaction| %>
+  <% if store_name != transaction.store_name %>
+    <% if store_name != "" %>
+      <tr>
+        <td colspan=3 align='center'>Total</td>
+        <td align='right'><%= number_to_currency(total_store, unit: '') %> </td>
+      </table>
+      <p/>
+    <% end %>
+    <% store_name = transaction.store_name %>
+    <% total_store = 0 %>
+    <table border=1 width=600px>
+      <tr><th colspan=4><%= store_name %></th></tr>
+  <% end %>
+  <tr>
+    <td><%= transaction.date.strftime("%d/%m/%y %H:%M") %></td>
+    <td><%= transaction.cpf %></td>
+    <td><%= transaction.card %></td>
+    <% total_store += transaction.value %>
+    <td align='right'><%= number_to_currency(transaction.value, unit: "") %></td>
+  </tr>
+<% end %>
+<tr>
+  <td colspan=3 align='center'>Total</td>
+  <td align='right'><%= number_to_currency(total_store, unit: '') %> </td>
+</table>
