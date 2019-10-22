@@ -2,10 +2,10 @@
 
 
   Versão do Ruby  : 2.4.0
-
   Versão do Rails : 5.2.3
-
   Banco de Dados  : SQlite3
+
+  Após instalar, executar 'rails db:seed' para alimentar o banco de dados com os diferentes tipos de transação
 
 # Desafio programação - para vaga Back-end
 
